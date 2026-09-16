@@ -31,3 +31,11 @@ def get_menu(
             raise HTTPException(status_code=404, detail="Menu item not found")
         return MenuResponse(count=len(filtered_menu), menu_items=filtered_menu)
     return MenuResponse(count=len(menu_items), menu_items=menu_items)
+
+
+@app.get("/menu/{item_id}", response_model=MenuResponse)
+def get_menu_item(item_id: int):
+    item=[item for item in menu_items if item["id"] == item_id]
+    if not item:
+        raise HTTPException(status_code=404, detail="Menu item not found")
+    return MenuResponse(count=1, menu_items=item)
