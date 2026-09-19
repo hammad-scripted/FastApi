@@ -14,7 +14,6 @@ class InvalidPinCodeError(HTTPException):
 
 # Custom handler
 
-
 async def pincode_not_found_handler(request: Request, exc: PinCodeNotFoundError):
     return JSONResponse(
         status_code=status.HTTP_404_NOT_FOUND,
