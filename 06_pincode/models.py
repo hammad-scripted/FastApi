@@ -1,4 +1,4 @@
-from fastapi import BaseModel,field_validator
+from pydantic import BaseModel,field_validator
 
 
 class PinCodeRequest(BaseModel):
